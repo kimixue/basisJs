@@ -1,0 +1,5 @@
+@import "lib/mixin";
+
+p{
+	@include px2px(width,200);
+}

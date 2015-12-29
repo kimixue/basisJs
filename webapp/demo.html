@@ -1,0 +1,118 @@
+<!DOCTYPE html >  
+<html >  
+<head>  
+    <title>Hittest example</title>  
+    <style type="text/css">  
+      button  
+      {  
+        position:absolute;  
+        top:600px;  
+        left:20px;  
+      }  
+      div  
+      {  
+        display:block;  
+        position:absolute;  
+        border:2px solid black;  
+        opacity:0.8;          
+      }  
+      #div1  
+      {  
+        background-color:Red;  
+        left:200px;  
+        top:200px;  
+        height:200px;  
+        width:300px;  
+      }      
+      #div2  
+      {  
+        background-color:Pink;  
+        left:150px;  
+        top:150px;  
+        height:200px;  
+        width:300px;  
+      }      
+      #div3  
+      {  
+        background-color:Green;  
+        left:250px;  
+        top:250px;  
+        height:50px;  
+        width:80px;  
+      }  
+      #div4  
+      {  
+        background-color:Yellow;  
+        left:400px;  
+        top:300px;  
+        height:250px;  
+        width:250px;  
+      }  
+      #div5  
+      {  
+        background-color:Purple;  
+        left:275px;  
+        top:100px;  
+        height:500px;  
+        width:20px;  
+      }  
+      #div6  
+      {  
+        background-color:Aqua;  
+        left:200px;  
+        top:175px;  
+        height:50px;  
+        width:400px;  
+      }  
+      #div7  
+      {  
+        background-color:Fuchsia;  
+        left:430px;  
+        top:100px;  
+        height:375px;  
+        width:30px;  
+      }              
+      #div8  
+      {  
+        background-color:Lime;  
+        left:175px;  
+        top:290px;  
+        height:40px;  
+        width:450px;  
+      }          
+    </style>  
+</head>  
+<body>  
+  <h1>getElementsFromPoint test</h1>  
+    <button id="refresh" onclick="refresh();">Refresh</button>  
+    <div id="div1"></div>  
+    <div id="div2"></div>  
+    <div id="div3"></div>  
+    <div id="div4"></div>   
+    <div id="div5"></div>  
+    <div id="div6"></div>  
+    <div id="div7"></div>  
+    <div id="div8"></div>  
+<script type="text/javascript">  
+    window.addEventListener("click", testHit, false);  
+    function refresh()   
+    {  
+      window.location.reload(false);           //reload page  
+    }  
+    function testHit(e)   
+    {  
+      if (document.msElementsFromPoint)  //feature testing  
+      {  
+        var hitTargets = document.msElementsFromPoint(e.clientX, e.clientY);   
+        // get elements from point                   
+        for (var i = 0; i < hitTargets.length; i++)   
+       {  
+         if(hitTargets[i].nodeName.toUpperCase() == "DIV")  
+         {  
+           hitTargets[i].style.backgroundColor = "gray";   
+         } //if it‘s a div, gray it out.                 
+       }  
+     }                 
+   }</script>  
+</body>  
+</html>
